@@ -1,0 +1,11 @@
+{
+  "menu": [
+
+    {
+      "name": "User Managements",
+      "url": "laravel/user-management",
+      "icon": "menu-icon tf-icons ti ti-users",
+      "slug": "laravel-example-user-management"
+    }
+  ]
+}
