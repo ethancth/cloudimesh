@@ -36,9 +36,9 @@ class CreateNewUser implements CreatesNewUsers
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
             ]), function (User $user) {
-              //dd($user);
-              $check_exist=TeamInvitation::where('email','=',$user->email)->orderByDesc('id')->firstOrFail();
-               if($check_exist){
+              $check_exist=TeamInvitation::where('email','=',$user->email)->orderByDesc('id')->get();
+
+               if(!$check_exist->empty()){
                  $this->joinTeam($check_exist->id);
                  $user->current_team_id=$check_exist->team_id;
                  $user->save();
